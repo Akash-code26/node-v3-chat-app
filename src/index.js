@@ -4,7 +4,7 @@ const path = require('path')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
 const { generateMessage, generateLocationMessage } = require('./utils/messages')
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
+const { addUser, removeUser, getUser, getUsersInRoom, getAllRooms } = require('./utils/users')
 
 const filter = new Filter()
 
@@ -27,9 +27,10 @@ app.use(express.static(publicDirectoryPath))
 io.on('connection', (socket) => {  
     console.log('New WebSocket connection')
 
-    
+    socket.emit('rooms', getAllRooms())
 
     socket.on('join', ({username, room}, callback) => {
+        
         const { error, user } = addUser({ id: socket.id, username, room })
         
         if(error) {
@@ -40,6 +41,8 @@ io.on('connection', (socket) => {
         socket.join(user.room)
 
         socket.emit('message', generateMessage('Admin', 'Welcome!'))
+        io.emit('rooms', getAllRooms())
+        
         socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} has joined`))
         io.to(user.room).emit('roomData', {
             room: user.room,
@@ -80,6 +83,8 @@ io.on('connection', (socket) => {
         io.to(user.room).emit('locationMessage', generateLocationMessage (user.username, `https://google.com/maps?q=${latitude},${longitude}`) )
         callback()
     })
+
+    
 
 })
 

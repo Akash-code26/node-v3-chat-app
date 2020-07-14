@@ -16,7 +16,8 @@ input {
 
 body {
     line-height: 1.4;
-    color: #333333;
+    color: white;
+    background:  #1D1F26 ;     
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -71,7 +72,7 @@ button:disabled {
     box-shadow: 0px 0px 17px 1px #1D1F26;
     background: #F7F7FA;
     padding: 24px;
-    width: 250px;
+    width: 350px;
 }
 
 .centered-form button {
@@ -83,6 +84,13 @@ button:disabled {
     width: 100%;
 }
 
+#room-input {
+    width: 90%;
+}
+
+#room-drop {
+    display: flex;
+}
 /* Chat Page Layout */
 
 .chat {
@@ -149,7 +157,7 @@ button:disabled {
 }
 
 .compose input {
-    border: 1px solid #eeeeee;
+    border: 1px solid black;
     width: 100%;
     padding: 12px;
     margin: 0 16px 0 0;
@@ -181,3 +189,57 @@ button:disabled {
     font-weight: 300;
     padding: 12px 24px 0 24px;
 }
+
+.scrollable-element {
+    scrollbar-color: dark;
+  }
+
+  #form-name {
+      color: black
+  }
+
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+   
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content p {
+    color: rgb(138, 135, 135);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    justify-content: center;
+  }
+
+ 
+
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}

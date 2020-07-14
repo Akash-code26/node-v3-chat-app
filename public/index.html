@@ -2,21 +2,41 @@
 <html>
     <head>
         <title>Chat App</title>
-        <link rel="stylesheet" href="css/styles.min.css">
+        <link rel="stylesheet" href="css/styles.css">
         <link rel="icon" href="img/favicon.png">
     </head>
     <body>
         <div class="centered-form">
             <div class="centered-form__box">
-                <h1>Join</h1>
+                <h1 id="form-name">Join</h1>
                     <form action="/chat.html">
                         <label>Display name</label>
                         <input type="text" name="username"  placeholder="Display name" required>
-                        <label>Room</label>
-                        <input type="text" name="room" placeholder="Room" required>
-                        <button>Join</button>
+                        <label>Room</label>    
+                        <div id="room-drop">
+                                
+                            <input type="text" name="room" placeholder="Room" required id="room-input">
+                            <span>
+                                <div class="dropdown" style="float:right;">
+                                    <button class="dropbtn">Rooms</button>
+                                    <div class="dropdown-content">
+                                    </div>
+                                  </div>
+                            </span>
+                           
+                            </div>
+                            
+                            <button >Join</button>
+                             
+                        </div>
                     </form>
+                    
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.js" integrity="sha512-lVOhRiSNKsseQXm0MgoEOV7efl7ET2+iBw5tRgKsX2BPA2LlkW2WUCsSYVwrrujEsbqNf+tN70z5pEnpnUtqUg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js" integrity="sha512-BHtomM5XDcUy7tDNcrcX1Eh0RogdWiMdXl3wJcKB3PFekXb3l5aDzymaTher61u6vEZySnoC/SAj2Y/p918Y3w==" crossorigin="anonymous"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/index.js"></script>
     </body>
 </html>
